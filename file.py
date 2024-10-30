@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+#
 def generate_data(num_points=100):
     x = np.linspace(0, 10, num_points)
     y = np.sin(x) + np.random.normal(0, 0.1, num_points)  # Синусоида с шумом
