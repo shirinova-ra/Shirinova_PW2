@@ -5,7 +5,6 @@ on:
     branches:
       - development
       - main
-
   pull_request:
     branches:
       - main
@@ -16,10 +15,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
         python-version: '3.9'
 
@@ -31,3 +30,12 @@ jobs:
     - name: Run tests
       run: |
         pytest
+
+    - name: Merge PR
+      if: github.event_name == 'pull_request' && github.ref == 'refs/heads/main' && github.event.action == 'merged'
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git checkout main
+        git merge development
+        git push origin main
