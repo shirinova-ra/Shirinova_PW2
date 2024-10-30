@@ -22,3 +22,4 @@ def plot_data(df):
 if __name__ == "__main__":
     data = generate_data()
     plot_data(data)
+# Добавили комментарий
