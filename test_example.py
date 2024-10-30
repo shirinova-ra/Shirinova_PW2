@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import pandas as pd
-from main import generate_data
+from file import generate_data
 
 def test_generate_data():
     """Тестирует функцию генерации данных."""
